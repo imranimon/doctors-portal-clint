@@ -13,7 +13,7 @@ const Appointments = ({ date }) => {
     const { user, token } = useAuth()
     const [appointments, setAppointments] = useState([]);
     useEffect(() => {
-        axios.get(`https://aqueous-shelf-84077.herokuapp.com/appointments?email=${user.email}&date=${date}`, { headers: { "authorization": `Bearer ${token}` } })
+        axios.get(`https://aqueous-shelf-84077.herokuapp.com/appointments?email=${user.email}&date=${date.toLocaleDateString("de-DE")}`, { headers: { "authorization": `Bearer ${token}` } })
             .then(res => {
                 setAppointments(res.data)
             })
