@@ -8,6 +8,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 const Appointments = ({ date }) => {
     const { user, token } = useAuth()
@@ -29,7 +31,7 @@ const Appointments = ({ date }) => {
                             <TableCell>Patient Name</TableCell>
                             <TableCell align="right">Time</TableCell>
                             <TableCell align="right">Service Name</TableCell>
-                            <TableCell align="right">Action</TableCell>
+                            <TableCell align="right">Payment</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -43,6 +45,22 @@ const Appointments = ({ date }) => {
                                 </TableCell>
                                 <TableCell align="right">{row.time}</TableCell>
                                 <TableCell align="right">{row.serviceType}</TableCell>
+                                <TableCell align="right">{row.payment ? 'Paid' :
+                                    <Link to={`/dashboard/payment/${row._id}`}>
+                                        <button
+                                            style={{
+                                                backgroundColor: '#5ce7ed',
+                                                border: 'none',
+                                                color: '#fff',
+                                                height: '30px',
+                                                width: '40px',
+                                                borderRadius: '5px',
+                                                cursor: 'pointer'
+                                            }}>
+                                            Pay
+                                        </button>
+                                    </Link>
+                                }</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

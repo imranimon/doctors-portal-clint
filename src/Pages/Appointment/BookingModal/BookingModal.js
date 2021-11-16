@@ -23,11 +23,12 @@ const style = {
 };
 
 const BookingModal = ({ handleBookingClose, openBooking, booking, date, setBookingSuccess }) => {
-    const { name, time } = booking;
+    const { name, time, price } = booking;
     const { user } = useAuth()
     const initialBookingInfo = {
         serviceType: name,
-        time: time,
+        time,
+        price,
         patientName: user.displayName,
         email: user.email,
         phone: ''
@@ -46,7 +47,6 @@ const BookingModal = ({ handleBookingClose, openBooking, booking, date, setBooki
 
     const handleBookingSubmit = e => {
         e.preventDefault();
-        console.log(date.toLocaleDateString("de-DE"))
         bookingInfo.date = date.toLocaleDateString("de-DE");
         axios.post('https://aqueous-shelf-84077.herokuapp.com/appointments', bookingInfo)
             .then(res => {

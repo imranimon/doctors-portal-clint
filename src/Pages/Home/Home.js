@@ -5,6 +5,7 @@ import Banner from './Banner/Banner';
 import ClintReview from './ClintReview/ClintReview';
 import ContactInfo from './ContactInfo/ContactInfo';
 import ContactUs from './ContactUs/ContactUs';
+import Doctors from './Doctors/Doctors';
 import './Home.css'
 import Services from './Services/Services';
 import Treatment from './Treatment/Treatment';
@@ -18,6 +19,7 @@ const Home = () => {
             <Services></Services>
             <Treatment></Treatment>
             <AppointmentBanner></AppointmentBanner>
+            <Doctors></Doctors>
             <ClintReview></ClintReview>
             <ContactUs></ContactUs>
         </div>
